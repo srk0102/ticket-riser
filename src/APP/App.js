@@ -1,10 +1,12 @@
-import logo from './logo.svg';
 import './App.css';
+
+//Importing components from local folder
+import Login from '../components/login'
 
 function App() {
   return (
     <>
-    <h1>Hello Word</h1>
+    <Login/>
     </>
   );
 }

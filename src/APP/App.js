@@ -1,7 +1,7 @@
 import './App.css';
 
 //Importing components from local folder
-import Login from '../components/login'
+import {Login} from '../global'
 
 function App() {
   return (

@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import {Link} from 'react-router-dom'
 import "./login.css"
 
 //Importing local components
@@ -16,7 +17,7 @@ export function Login(props) {
   const [Email, setEmail] = useState()
   const [EmailError, setEmailError] = useState("")
   const [password, setPassword] = useState()
-  const [PasswordError, setPassWordError] = useState("")
+  const [PasswordError, setPasswordErr] = useState("")
 
   /**
    * This function will validate the email type.
@@ -42,10 +43,10 @@ export function Login(props) {
   const validatePassword = (event) => {
     let val = event.target.value
     if (val === "") {
-      setPassWordError("*Please enter a valid password")
+      setPasswordErr("*Please enter a valid password")
     }
     else {
-      setPassWordError("")
+      setPasswordErr("")
       setPassword(val)
     }
   }
@@ -58,10 +59,10 @@ export function Login(props) {
             <div className="card col-12 col-md-6 col-xl-4 text-center p-2">
               <SmallLogo Url={Logo} name={CompanyName} />
               <h1 className="fw-bold fs-1 text-uppercase">{CompanyName ? CompanyName : "Add Task"}</h1>
-              <CustomInput label="Email" theme="black" type="email" err={EmailError} onChange={(event) => (validateEmail(event))} />
+              <CustomInput label="Email" theme="black"  type="email" err={EmailError} onChange={(event) => (validateEmail(event))} />
               <CustomInput label="Password" theme="black" type="password" err={PasswordError} onChange={(event) => (validatePassword(event))} />
               <div className="d-flex flex-row justify-content-end p-3">
-                <a href="#" className="link-dark">Forgot Password?</a> {/*TODO - CONVERT THIS INTO LINK INSTEAD OF anchor tag*/}
+                <Link to="#" className="link-dark">Forgot Password?</Link>
               </div>
               <div className="d-flex flex-row justify-content-center">
                 <button className="btn btn-dark">LOGIN</button>

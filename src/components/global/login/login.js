@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import "./login.css"
 
 //Importing local components
@@ -56,16 +56,21 @@ export function Login(props) {
       <div style={{ height: "100vh" }} className="d-flex flex-column justify-content-center">
         <div className="container">
           <div className="row justify-content-center p-3 p-sm-0">
-            <div className="card col-12 col-md-6 col-xl-4 text-center p-2">
-              <SmallLogo Url={Logo} name={CompanyName} />
-              <h1 className="fw-bold fs-1 text-uppercase">{CompanyName ? CompanyName : "Add Task"}</h1>
-              <CustomInput label="Email" theme="black"  type="email" err={EmailError} onChange={(event) => (validateEmail(event))} />
-              <CustomInput label="Password" theme="black" type="password" err={PasswordError} onChange={(event) => (validatePassword(event))} />
-              <div className="d-flex flex-row justify-content-end p-3">
-                <Link to="#" className="link-dark">Forgot Password?</Link>
+            <div className="card col-12 text-center p-2 d-md-flex flex-md-row">
+              <div className="col-md-6 d-md-flex flex-md-column justify-content-center align-items-center">
+                <SmallLogo Url={Logo} name={CompanyName} />
+                <h1 className="fw-bold fs-1 text-uppercase">{CompanyName ? CompanyName : "Add Task"}</h1>
               </div>
-              <div className="d-flex flex-row justify-content-center">
-                <button className="btn btn-dark">LOGIN</button>
+              <div className="col-md-6 p-md-3">
+                <CustomInput label="Email" theme="black" type="email" err={EmailError} onChange={(event) => (validateEmail(event))} />
+                <CustomInput label="Password" theme="black" type="password" err={PasswordError} onChange={(event) => (validatePassword(event))} />
+                <div className="d-flex flex-column align-items-end p-3">
+                  <Link to="#" className="link-dark">Forgot Password ?</Link>
+                  <Link to="#" className="link-dark mt-1">New User ?</Link>
+                </div>
+                <div className="d-flex flex-row justify-content-center">
+                  <button className="btn btn-dark">LOGIN</button>
+                </div>
               </div>
             </div>
           </div>

@@ -9,6 +9,7 @@ import { SideBar, Card, BottomBar } from "../../../reusable"
 export function Dashboard() {
 
   const icons = [faHome, faTicketAlt]
+  const sidebarLinks = ["Dashboard" ,"My-Tickets"]
 
 
   return (
@@ -16,7 +17,7 @@ export function Dashboard() {
       <div className="d-flex flex-row">
         <div className="container-fluid">
           <div className="row">
-            <SideBar className="col-3 d-none d-lg-block" menuIcons = {icons}/>
+            <SideBar className="col-3 d-none d-lg-block" menuIcons = {icons} menuItems={sidebarLinks}/>
             <BottomBar className="d-block d-lg-none" items={icons}/>
             <div className="col-md-9 col-12 pt-3">
               <div className="container-fluid col-12">

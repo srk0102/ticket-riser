@@ -38,7 +38,7 @@ export function Login(props) {
 
   /**
    * Validates password if its correct or not.
-   * @param {Object} event 
+   * @param {Object} event
    */
   const validatePassword = (event) => {
     let val = event.target.value

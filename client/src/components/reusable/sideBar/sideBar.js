@@ -63,14 +63,22 @@ export function SideBar(props) {
           ) : (
             <>
               <div className="text-end vd-flex flex-column justify-content-between" style={{ height: "100%" }}>
-                <div>
+                <div calssName="">
                   <i className="fas fa-arrow-left" onClick={() => expandedState()}></i>
                 </div>
-                <div>
-
-                </div>
-                <div className="profile">
-
+                <div className="d-flex flex-column justify-content-between text-center" style={{ height: "95%" }}>
+                  <div className="d-flex flex-column justify-content-center mt-5">
+                    {
+                      menuItems?.map((e) =>
+                        <>
+                          <Link to = {e} className="mt-3">{e}</Link>
+                        </>
+                      )
+                    }
+                  </div>
+                  <div className="profile text-light">
+                    <h1>d</h1>
+                  </div>
                 </div>
               </div>
             </>

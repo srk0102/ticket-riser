@@ -6,7 +6,7 @@ import './App.css';
 import Data from '../CompanyData.json';
 
 //Importing components from local folder
-import { Login, SignUp } from '../global'
+import { Login, SignUp, Dashboard, Landing } from '../global'
 
 function App() {
   return (
@@ -15,11 +15,19 @@ function App() {
         <Routes>
           <Route
             path="/"
-            element = {<Login CompanyName={Data.Title} Logo={Data.SmallLogo}/>}
+            element={<Landing />}
+          />
+          <Route
+            path="/login"
+            element={<Login CompanyName={Data.Title} Logo={Data.SmallLogo} />}
           />
           <Route
             path="/signup"
-            element = {<SignUp CompanyName={Data.Title} Logo={Data.SmallLogo}/>}
+            element={<SignUp CompanyName={Data.Title} Logo={Data.SmallLogo} />}
+          />
+          <Route
+            path="/dashboard"
+            element={<Dashboard/>}
           />
         </Routes>
       </Router>

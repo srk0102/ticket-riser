@@ -55,9 +55,9 @@ export const validate = (data, type) => {
       return validateEmail(data)
     case "password":
       return validatePassword(data)
-    default:
     case "userName":
       return validateUserName(data)
+    default:
       break;
   }
 }

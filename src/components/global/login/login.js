@@ -66,7 +66,7 @@ export function Login(props) {
                 <CustomInput label="Password" theme="black" type="password" err={PasswordError} onChange={(event) => (validatePassword(event))} />
                 <div className="d-flex flex-column align-items-end p-3">
                   <Link to="#" className="link-dark">Forgot Password ?</Link>
-                  <Link to="#" className="link-dark mt-1">New User ?</Link>
+                  <Link to="signup" className="link-dark mt-1">New User ?</Link>
                 </div>
                 <div className="d-flex flex-row justify-content-center">
                   <button className="btn btn-dark">LOGIN</button>

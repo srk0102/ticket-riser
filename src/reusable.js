@@ -1,3 +1,7 @@
 export * from "./components/reusable/customInput/customInput"
 export * from "./components/reusable/smallLogo/smallLogo"
 export * from "./components/reusable/customButton/customButton"
+export * from "./components/reusable/navBar/navBar"
+export * from "./components/reusable/sideBar/sideBar"
+export * from "./components/reusable/card/card"
+export * from "./components/reusable/bottomBar/bottomBar"

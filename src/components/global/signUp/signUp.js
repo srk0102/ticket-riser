@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import "./signUp.css"
 
 //Importing Utilities
@@ -25,10 +25,10 @@ export function SignUp(props) {
   /**
    * This function will validate the email type.
    * It will also check wether email is in database or not.
-   * @param {Object} event this will contain input event trigger object
+   * @param {Object} event this will contain input email event trigger object.
    */
   const validateEmail = (event) => {
-    let val = event.target.value
+    let val = event?.target?.value
     if (validate(val, "email") === false) {
       setEmailErr("*Please enter valid email")
     }
@@ -38,8 +38,12 @@ export function SignUp(props) {
     }
   }
 
+  /**
+   * This function will validate the User Name.
+   * @param {Object} event This will contain userName input event trigger object.
+   */
   const validateUserName = (event) => {
-    let val = event.target.value
+    let val = event?.target?.value
     if (validate(val, "userName") === false) {
       setUserNameErr("*Please enter valid User Name")
     }
@@ -51,10 +55,10 @@ export function SignUp(props) {
 
   /**
    * Validates password if its correct or not.
-   * @param {Object} event 
+   * @param {Object} event This will contain password input event trigger object.
    */
   const validatePassword = (event) => {
-    let val = event.target.value
+    let val = event?.target?.value
     if (validate(val, "password") === false) {
       setPasswordErr("*Please enter a valid password")
     }
@@ -65,10 +69,11 @@ export function SignUp(props) {
   }
 
   /**
-  * 
+  * Validates confirm password with given password.
+  * @param {Object} event This will contain confirmPassword input event trigger object.
   */
   const validateConfirmPassword = (event) => {
-    let val = event.target.value
+    let val = event?.target?.value
     if (val !== password) {
       setConfirmPasswordErr("*confirm password should match with password")
     }
@@ -79,10 +84,20 @@ export function SignUp(props) {
   }
 
   /**
-   * 
+   * This function will post details to the server.
    */
   const submitDetails = () => {
-
+    let details = [email, userName, password, confirmPassword]
+    let err = [setEmailErr, setUserNameErr, setPasswordErr, setConfirmPasswordErr]
+    for (let i in details) {
+      if (details[i] === undefined || details[i] === "") {
+        console.log(details[i])
+        err[i]("*Please fill this filed")
+      }
+    }
+    if (password !== confirmPassword) {
+      setConfirmPasswordErr("*Confirm password should match with password")
+    }
   }
 
 
@@ -105,7 +120,7 @@ export function SignUp(props) {
                   <Link to="#" className="link-dark">Already Registered?</Link>
                 </div>
                 <div className="d-flex flex-row justify-content-center">
-                  <button className="btn btn-dark">SIGN UP</button>
+                  <button className="btn btn-dark" onClick={() => submitDetails()}>SIGN UP</button>
                 </div>
               </div>
             </div>

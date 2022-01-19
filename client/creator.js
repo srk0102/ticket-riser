@@ -11,7 +11,7 @@ function create() {
     (type) => {
       type = type.toLowerCase();
       if (type === "g" || type === "global") {
-        readline.question("Enter component Name", (name) => {
+        readline.question("Enter component Name in camelCase notation ", (name) => {
           var compName = name;
           let type = "js";
 
@@ -56,7 +56,7 @@ export function ${
           readline.close();
         });
       } else if (type === "r" || type === "reusable") {
-        readline.question("Enter component Name", (name) => {
+        readline.question("Enter component Name in camelCase notation ", (name) => {
           var compName = name;
           let type = "js";
 

@@ -4,7 +4,7 @@ import "./dashboard.css"
 import { faHome, faTicketAlt} from '@fortawesome/free-solid-svg-icons'
 
 //Importing reusable components from
-import { SideBar, Card, BottomBar } from "../../../reusable"
+import { SideBar, Card, BottomBar, BreadCrumb } from "../../../reusable"
 
 export function Dashboard() {
 
@@ -22,6 +22,7 @@ export function Dashboard() {
             <div className="col-md-9 col-12 pt-3">
               <div className="container-fluid col-12">
                 <div className="row justify-content-around">
+                  <BreadCrumb className="d-none d-md-block"/>
                   <Card className="col-12 col-sm-6 col-md-3" cardTitle="Tickets you raised" cardDescription="2345" cardFooter="since 2019"/>
                 </div>
               </div>

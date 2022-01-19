@@ -4,7 +4,7 @@ import rootReducer from "./index";
 
 // const composeEnhancers =
 //   process.env.NODE_ENV !== 'production' &&
-//   window._REDUX_DEVTOOLS_EXTENSION_COMPOSE_ ?   
+//   window._REDUX_DEVTOOLS_EXTENSION_COMPOSE_ ?
 //     window._REDUX_DEVTOOLS_EXTENSION_COMPOSE_({
 //       name: 'GIS', actionsBlacklist: ['REDUX_STORAGE_SAVE']
 //     }) : compose;

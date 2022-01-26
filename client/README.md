@@ -6,6 +6,14 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 In the project directory, you can run:
 
+### `npm run create`
+
+You can create a react functional component using this command.
+This will create folder according to your input name.
+This will create [folder(name)] -> -> .js with react function code in it and .css that already imported into .js file.
+This will also export all components from global.js that will be created automatically in your src folder.
+you can directly import {all components using their names} from "../global"
+
 ### `npm start`
 
 Runs the app in the development mode.\

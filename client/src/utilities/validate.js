@@ -30,7 +30,7 @@ const validatePassword = (password) => {
 
 /**
  * This function will validate User Name.
- * @param {String} userName 
+ * @param {String} userName
  * @returns Boolean if given string is perfect User Name or not.
  */
 const validateUserName = (userName) => {

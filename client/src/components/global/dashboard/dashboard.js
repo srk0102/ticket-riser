@@ -1,15 +1,16 @@
 import React from 'react'
 import "./dashboard.css"
 
-import { faHome, faTicketAlt} from '@fortawesome/free-solid-svg-icons'
+import { faHome, faTicketAlt } from '@fortawesome/free-solid-svg-icons'
 
 //Importing reusable components from
-import { SideBar, Card, BottomBar, BreadCrumb } from "../../../reusable"
+import { SideBar, Card, BottomBar, BreadCrumb, TicketModal } from "../../../reusable"
 
 export function Dashboard() {
 
   const icons = [faHome, faTicketAlt]
-  const sidebarLinks = ["Dashboard" ,"My-Tickets"]
+  const sidebarLinks = ["Dashboard", "My-Tickets"]
+  const dashboardSummery = [{ title: "Tickets Raised", tickets: 2345 }, { title: "Tickets cleared", tickets: 2345 }, { title: "Tickets pending", tickets: 2345 },{ title: "Tickets Unassigned", tickets: 2345 }]
 
 
   return (
@@ -17,18 +18,25 @@ export function Dashboard() {
       <div className="d-flex flex-row">
         <div className="container-fluid">
           <div className="row">
-            <SideBar className="col-3 d-none d-lg-block" menuIcons = {icons} menuItems={sidebarLinks}/>
-            <BottomBar className="d-block d-lg-none" items={icons}/>
+            <SideBar className="col-3 d-none d-lg-block" menuIcons={icons} menuItems={sidebarLinks} />
+            <BottomBar className="d-block d-lg-none" items={icons} />
             <div className="col-md-9 col-12 pt-3">
               <div className="container-fluid col-12">
-                <div className="row justify-content-around">
-                  <BreadCrumb className="d-none d-md-block"/>
-                  <Card className="col-12 col-sm-6 col-md-3" cardTitle="Tickets you raised" cardDescription="2345" cardFooter="since 2019"/>
+                <div className="row">
+                  <BreadCrumb className="d-none d-md-block" />
+                  {
+                    dashboardSummery.map((e) =>
+                      <Card className="col-12 col-sm-6 col-md-3" cardTitle={e.title} cardName={e.title} cardDescription={e.tickets} cardBorder="2px solid #ff2684" cardTheme="#2e3054" />
+                    )
+                  }
                 </div>
               </div>
             </div>
           </div>
         </div>
+      </div>
+      <div className="position-relative">
+        <TicketModal modalButton="+" className="position-absolute bottom-0 end-0" />
       </div>
     </>
   )

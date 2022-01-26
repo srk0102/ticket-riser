@@ -43,7 +43,7 @@ export function Login(props) {
   const validatePassword = (event) => {
     let val = event.target.value
     if (val === "" || password === "") {
-      setPasswordErr("*Please enter a valid password")
+      setPasswordErr("*password must contain at least one letter, one alphabet and greater than 8")
     }
     else {
       setPasswordErr("")

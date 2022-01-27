@@ -13,7 +13,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
  */
 export function SideBar(props) {
 
-  const { className, menuIcons, menuItems } = props
+  const { addClassToSideBar, menuIcons, menuItems } = props
 
   const [menu, setMenu] = useState(false)
   const [width, setWidth] = useState("200px")
@@ -36,7 +36,7 @@ export function SideBar(props) {
 
   return (
     <>
-      <div className={"border-end border-dark bg-dark text-light border-3 p-3 " + className} style={{ width: width, transition: "all 200ms ease-in-out", height: "100vh" }}>
+      <div className={"border-end border-dark bg-dark text-light border-3 p-3 " + addClassToSideBar} style={{ width: width, transition: "all 200ms ease-in-out", height: "100vh" }}>
         {
           menu === true ? (
             <>
@@ -49,7 +49,7 @@ export function SideBar(props) {
                     {
                       menuIcons?.map((e) =>
                         <>
-                          <Link to="#" className="mt-3"><FontAwesomeIcon icon={e} /></Link>
+                          <Link to="#" className="mt-3"><FontAwesomeIcon icon={e}/></Link>
                         </>
                       )
                     }

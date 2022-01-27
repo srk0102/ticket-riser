@@ -1,39 +1,55 @@
-import React from 'react'
+import React, { useState } from 'react'
 import "./modal.css"
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faTimes } from '@fortawesome/free-solid-svg-icons'
 
 export function TicketModal(props) {
-  const { modelTitle, modalButton,submitName, className } = props
+  const { modelTitle, modalButton, submitName, addClassToTicketModal } = props
+
+  const [show, setShow] = useState(false)
+
+  const open = () => {
+    setShow(true)
+  }
+
+  const close = () => {
+    setShow(false)
+  }
+
+  const submit = () => {
+
+  }
+
   return (
     <>
-      <button type="button" className={"btn btn-primary fw-bold " + className} data-bs-toggle="modal" data-bs-target="#exampleModal">{modalButton?modalButton:"Raise Ticket"}</button>
+      <button className="btn btn-primary" onClick={open}>{modalButton ? modalButton : "Modal"}</button>
 
-      <div className="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div className="modal-dialog">
-          <div className="modal-content">
-            <div className="modal-header">
-              <h5 className="modal-title" id="exampleModalLabel">{modelTitle?modelTitle:"..."}</h5>
-              <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div className="modal-body">
-              <form>
-                <div className="mb-3">
-                  <label for="recipient-name" className="col-form-label">Title</label>
-                  <input type="text" className="form-control" id="recipient-name" />
+      {
+        show ? (
+          <>
+            <div className="ticketModal">
+              <div className="card ticket">
+                <div className="card-header d-flex flex-row justify-content-between">
+                  <h1>{modelTitle ? modelTitle : "..."}</h1>
+                  <button className="btn btn-danger" onClick={close}><FontAwesomeIcon icon={faTimes}/></button>
                 </div>
-                <div className="mb-3">
-                  <label for="message-text" className="col-form-label">Description:</label>
-                  <textarea className="form-control" id="message-text"></textarea>
+                <div className="card-body">
+                  <input className="form-control mb-3" type="text" placeholder="Title" />
+                  <textarea className="form-control mb-3" placeholder="Description" />
+                  <input className="form-control"type="file"/>
                 </div>
-                <input type="file" class="form-control"></input>
-              </form>
+                <div className="card-footer d-flex flex-row justify-content-end">
+                  <button className="btn btn-danger mx-2" onClick={close}>Close</button>
+                  <button className="btn btn-primary" onClick={submit}>Submit</button>
+                </div>
+              </div>
             </div>
-            <div className="modal-footer">
-              <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-              <button type="button" className="btn btn-primary">{submitName?submitName:"Submit"}</button>
-            </div>
-          </div>
-        </div>
-      </div>
+          </>
+        ) : (
+          <>
+          </>
+        )
+      }
     </>
   )
 }

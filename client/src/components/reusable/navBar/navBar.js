@@ -4,11 +4,11 @@ import "./navBar.css"
 
 export function NavBar(props) {
 
-  const {items, className} = props
+  const {items, addClassToNav} = props
 
   return (
     <>
-      <nav className={"navbar navbar-expand-lg navbar-dark bg-dark "+ className}>
+      <nav className={"navbar navbar-expand-lg navbar-dark bg-dark "+ addClassToNav}>
         <div className="container-fluid">
           <Link className="navbar-brand" to="/">Navbar</Link>
           <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">

@@ -19,11 +19,11 @@ import "./customInput.css"
  */
 
 export function CustomInput(props) {
-  const { label, type, className, onChange, value, err, cursorColor, labelColor, fieldColor, theme, errColor, pattern, onBlur } = props;
+  const { label, type, addClassToInput, onChange, value, err, cursorColor, labelColor, fieldColor, theme, errColor, pattern, onBlur } = props;
   return (
     <>
       <div className="styled-input mt-2" title={label}>
-        <input type={type} pattern={pattern} className={className} onChange={onChange} onBlur={onBlur} value={value} required style={{ color: cursorColor ? cursorColor : theme }} />
+        <input type={type} pattern={pattern} className={addClassToInput} onChange={onChange} onBlur={onBlur} value={value} required style={{ color: cursorColor ? cursorColor : theme }} />
         <label style={{ color: labelColor ? labelColor : theme, fontWeight: "bold" }}>{label}</label>
         <span style={{ backgroundColor: fieldColor ? fieldColor : theme }}></span>
       </div>

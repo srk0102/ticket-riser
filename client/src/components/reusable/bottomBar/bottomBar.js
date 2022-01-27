@@ -11,14 +11,14 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
  * @returns
  */
 export function BottomBar(props) {
-  const { items, className } = props
+  const { items, addClassToBottomBar } = props
 
   return (
     <>
-      <div className={"bg-dark text-light fixed-bottom d-flex flex-row justify-content-between justify-content-md-around align-items-center " + className}>
+      <div className={"bg-dark text-light fixed-bottom d-flex flex-row justify-content-between justify-content-md-around align-items-center " + addClassToBottomBar}>
         {items?.map((e) =>
           <>
-            <Link to="#" className=""><FontAwesomeIcon icon={e} /></Link>
+            <Link to="#" className={" "} ><FontAwesomeIcon icon={e} /></Link>
           </>
         )}
         <div className="profile">

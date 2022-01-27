@@ -1,7 +1,7 @@
 import React from 'react'
 import "./dashboard.css"
 
-import { faHome, faTicketAlt } from '@fortawesome/free-solid-svg-icons'
+import { faTicketAlt } from '@fortawesome/free-solid-svg-icons'
 
 //Importing reusable components from
 import { SideBar, Card, BottomBar, BreadCrumb, TicketModal } from "../../../reusable"

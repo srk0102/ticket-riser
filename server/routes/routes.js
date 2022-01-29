@@ -13,7 +13,7 @@ const USER = require('../scheema/usersScheema');
 const TICKET = require('../scheema/ticketSCheema')
 
 //Importing MiddleWares
-const {signupMiddleWare} = require('../middleWares/middleware')
+const { signupMiddleWare } = require('../middleWares/middleware')
 
 /**
  * Route "/dummy" to show back end is working or not.
@@ -27,12 +27,12 @@ router.get('/dummy', async (req, res) => {
  * @param {Object} body this is the body that will be post to db.
  * @return the response if the data posted to db or not.
  */
-router.post('/signup',signupMiddleWare, async (req, res) => {
+router.post('/signup', signupMiddleWare, async (req, res) => {
   const data = req.body
   if (data) {
     USER.insertMany(data)
       .then(data => {
-        res.status(200).send(data)
+        res.status(201).send(data)
       })
       .catch(err => {
         res.status(203).send(err.message)
@@ -49,13 +49,12 @@ router.post('/signup',signupMiddleWare, async (req, res) => {
  */
 router.post('/login', async (req, res) => {
   const data = req.body
-  console.log(data)
   if (data) {
-    await USER.findOne(data[0])
+    await USER.findOne(data)
       .then(data => {
         if (data === null) {
           res
-            .status(500)
+            .status(404)
             .send("User Not found")
         }
         else {
@@ -68,7 +67,7 @@ router.post('/login', async (req, res) => {
         console.log(err)
         res
           .status(500)
-          .send(err)
+          .send(err.message)
       })
   } else {
     res
@@ -91,7 +90,7 @@ router.post('/AddTicket', async (req, res) => {
         res.status(200).send(data)
       })
       .catch(err => {
-        res.status(203).send(err)
+        res.status(203).send(err.message)
       })
   } else {
     res.status(500).send("Internal Server Error")
@@ -106,13 +105,13 @@ router.post('/userTickets', async (req, res) => {
   const data = req.body
   console.log(data)
   if (data) {
-    TICKET.find(data[0])
+    TICKET.find(data)
       .then(data => {
         res.status(200).send(data)
         console.log(data)
       })
       .catch(err => {
-        res.status(203).send(err)
+        res.status(203).send(err.message)
       })
   } else {
     res.status(500).send("Internal Server Error")
@@ -130,7 +129,20 @@ router.get('/tickets', async (req, res) => {
       res.status(200).send(data)
     })
     .catch(err => {
-      res.status(203).send(err)
+      res.status(203).send(err.message)
+    })
+})
+
+/**
+ *ANCHOR dummy
+ */
+router.get('/id', async (req, res) => {
+  TICKET.find({ "Title": { $nin: ['jim'] } })
+    .then((data) => {
+      res.status(200).send(data)
+    })
+    .catch(err => {
+      res.status(203).send(err.message)
     })
 })
 

@@ -2,15 +2,18 @@
 const { response } = require('express');
 const express = require('express');
 
-//Importing schemas
-const USER = require('../scheema/usersScheema');
-const TICKET = require('../scheema/ticketSCheema')
-
 //Initializing and declaring app as express
 const app = express();
 
 // Initializing and declaring router to create routes
 const router = new express.Router();
+
+//Importing schemas
+const USER = require('../scheema/usersScheema');
+const TICKET = require('../scheema/ticketSCheema')
+
+//Importing MiddleWares
+const {signupMiddleWare} = require('../middleWares/middleware')
 
 /**
  * Route "/dummy" to show back end is working or not.
@@ -24,16 +27,15 @@ router.get('/dummy', async (req, res) => {
  * @param {Object} body this is the body that will be post to db.
  * @return the response if the data posted to db or not.
  */
-router.post('/signup', async (req, res) => {
+router.post('/signup',signupMiddleWare, async (req, res) => {
   const data = req.body
-  console.log(data)
   if (data) {
     USER.insertMany(data)
       .then(data => {
         res.status(200).send(data)
       })
       .catch(err => {
-        res.status(203).send(err)
+        res.status(203).send(err.message)
       })
   } else {
     res.status(500).send("Internal Server Error")

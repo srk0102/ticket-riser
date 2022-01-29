@@ -7,7 +7,8 @@ const addTicketsSchema = new Schema({
   file: { type: String },
   comments: { type: Array },
   assignedTo: { type: String },
-  raisedBy: { type: String, required: true, unique: true }
+  raisedBy: { type: String, required: true, unique: true },
+  status: {type:Boolean, required: true}
 });
 
 const TICKET = mongoose.model('tickets', addTicketsSchema);
